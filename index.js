@@ -7,11 +7,6 @@ function endsWith(s, suffix)
     return pos === s.length - suffix.length;
 }
 
-function sortByName(a, b)
-{
-    return a.name.localeCompare(b.name);
-}
-
 function endsWithOneOf(file, suffixes)
 {
     for (let i = 0; i < suffixes.length; i++)
@@ -52,18 +47,18 @@ function onBuildDone(stats)
 
                 files.forEach(file => {
 
-                if (endsWithOneOf(file, suffixes) && !newlyCreatedAssets[file])
-            {
-                fs.unlinkSync(path.resolve(buildDir, file));
-                unlinked.push(file);
-            }
-        });
+                    if (endsWithOneOf(file, suffixes) && !newlyCreatedAssets[file])
+                    {
+                        fs.unlinkSync(path.resolve(buildDir, file));
+                        unlinked.push(file);
+                    }
+                });
 
-            if (opts.debug && unlinked.length > 0)
-            {
-                console.log('Removed old assets: ', unlinked);
-            }
-        });
+                if (opts.debug && unlinked.length > 0)
+                {
+                    console.log("Removed old assets: ", unlinked);
+                }
+            });
         }
 
         if (opts.generateAssetsJson)
@@ -109,7 +104,7 @@ function WebpackAssetsPlugin(opts)
 WebpackAssetsPlugin.prototype.apply = function (compiler) {
     this.buildDir = compiler.options.output.path;
 
-    compiler.plugin('done', this.onBuildDone);
+    compiler.plugin("done", this.onBuildDone);
 };
 
 module.exports = WebpackAssetsPlugin;
