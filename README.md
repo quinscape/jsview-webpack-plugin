@@ -55,3 +55,21 @@ module.exports = {
 ```
 
 The plugin will generate a "webpack-assets.json" file to the webpack build dir where the server-side lib will pick it up.
+
+## Options
+
+A map of options can be given as only argument to the JsView plugin. Valid options are.
+
+ * generateAssetsJson (boolean) 
+
+   if true (the default), generate the webpack-assets.json file
+
+ * clean (array of string suffixes)
+
+   Determines file endings of old asset files the plugin will clean from the build directory. 
+   Default is `[".js", ".js.map", ".css", ".css.map"]`
+
+ * debug (boolean)
+
+   If true (default is false), print some informational logs while operating.
+
