@@ -1,11 +1,11 @@
 {
   "name": "jsview-webpack-plugin",
-  "version": "0.1.0",
-  "description": "Extracts JSON stats from the webpack build and cleans stale assets",
+  "version": "0.1.1",
+  "description": "Extracts JSON stats from the webpack build",
   "main": "index.js",
   "author": "Sven Helmberger",
   "license": "MIT",
   "peerDependencies": {
-    "webpack": "^4.6.0"
+    "webpack": "^5.51.1"
   }
 }
